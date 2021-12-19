@@ -1,10 +1,17 @@
 # kintsugi - lighthouse and geth
 Run lighthousebeacon and geth for kintsugi testnet in docker containers, with docker-compose.
+
 It follows Remy Roys description, see here:
+
 https://github.com/remyroy/ethstaker/blob/main/merge-devnet.md
+
 see also:
+
 https://www.reddit.com/r/ethstaker/comments/riacuf/the_kintsugi_public_merge_testnet_is_live_and/
+
+
 ## usage
+
 In order to use it:
 ```
 git clone https://github.com/mragicl/kintsugi.git
