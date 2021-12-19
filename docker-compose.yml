@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  lighthousebeacon:
+    image: "mragicl/kintsugi-lighthousebeacon:latest"
+    ports:
+      - "19000:9000"
+      - "15052:5052"
+    volumes:
+      - "./data/lighthousebeacon:/var/lib/lighthousebeacon"
+#    networks:
+#      - default
+
+  geth:
+    image: "mragicl/kintsugi-geth:latest"
+    ports:
+      - "30343:30303"
+#      - "18545:8545"
+    volumes:
+      - "./data/goethereum:/var/lib/goethereum"
+#    networks:
+#      - default
+  app:
+    image: "mragicl/app:latest"
+    stdin_open: true
+    tty: true
+
+
+#networks:
+#  default:
+#    name: defaultnetwork
