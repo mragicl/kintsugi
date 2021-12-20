@@ -42,17 +42,22 @@ RUN chmod a+x  /usr/local/bin/lighthouse
 USER root
 RUN useradd -ms /bin/bash lighthousebeacon
 RUN mkdir -p /var/lib/lighthouse
-RUN cp -r /home/builder/consensus-deployment-ansible/kintsugi-testnet /var/lib/lighthouse
+#RUN cp -r /home/builder/consensus-deployment-ansible/kintsugi-testnet /var/lib/lighthouse
 RUN chown -R lighthousebeacon:lighthousebeacon /var/lib/lighthouse
 # http port
 expose 15052
 # p2p port
 expose 19000
 
-USER lighthousebeacon
+
+
+USER root
 RUN ls
-RUN /usr/local/bin/lighthouse bn --help
-CMD /usr/local/bin/lighthouse bn --spec mainnet --datadir /var/lib/lighthouse --eth1 --http --http-allow-sync-stalled --merge --execution-endpoints http://geth:8545 --metrics --boot-nodes="enr:-Iq4QKuNB_wHmWon7hv5HntHiSsyE1a6cUTK1aT7xDSU_hNTLW3R4mowUboCsqYoh1kN9v3ZoSu_WuvW9Aw0tQ0Dxv6GAXxQ7Nv5gmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk" --testnet-dir /var/lib/lighthouse/kintsugi-testnet/custom_config_data  --eth1-endpoints http://geth:8545 
+COPY run_lighthousebeacon.sh /home/lighthousebeacon
+RUN chmod a+x /home/lighthousebeacon/run_lighthousebeacon.sh
+COPY initialize_validator.sh /home/lighthousebeacon
+CMD /home/lighthousebeacon/run_lighthousebeacon.sh
+
 
 
 
