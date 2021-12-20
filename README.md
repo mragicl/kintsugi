@@ -45,17 +45,17 @@ Once it is funded, use to deposit.sh script to perform the deposit to the kintsu
 ./deposit.sh
 ```
 
-For the last step, you need the password of your validator's keystore. You can find it such:
+For the last step, you need the password of your validator's keystore. You can find it here:
 ```
 cat data/app/assigned_data/secrets/<pubkey> && echo
 ```
 
-To activate your validator, you run then:
+To activate your validator run:
 ```
 ./init_validator.sh
 ```
 
-Then restart the containers:
+And restart the containers:
 ```
 docker compose down
 docker compouse up -d
