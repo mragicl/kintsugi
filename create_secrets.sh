@@ -8,7 +8,7 @@ ADDRESS_AND_PRIVATE_ETH1_KEY=`docker exec  kintsugi_app_1 node /app/makewallet.j
 echo $ADDRESS_AND_PRIVATE_ETH1_KEY
 ETH1_FROM_ADDR=`echo $ADDRESS_AND_PRIVATE_ETH1_KEY | cut -d' ' -f2`
 ETH1_FROM_PRIV=`echo $ADDRESS_AND_PRIVATE_ETH1_KEY | cut -d' ' -f4`
-#sudo chmod -R a+rw data/app
+sudo chmod -R a+rw data/app
 cat <<EOF > data/app/secrets.env
 # sets the deposit amount to use
 DEPOSIT_AMOUNT=32000000000
