@@ -50,7 +50,7 @@ For the last step, you need the password of your validator's keystore. You can f
 cat data/app/assigned_data/secrets/<pubkey> && echo
 ```
 
-To activate your validator run:
+To activate your validator run init_validator.sh. It will prompt you for the keystore password. Enter the one from above.
 ```
 ./init_validator.sh
 ```
